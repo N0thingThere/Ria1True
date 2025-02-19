@@ -3,7 +3,7 @@ from .models import Movie, User
 
 # Register your models here.
 class MovieAdmin(admin.ModelAdmin):
-    fields = ["title","rating"]
+    fields = ["title", "description", "image", "price"]
 
 
 admin.site.register(Movie, MovieAdmin)
