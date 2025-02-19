@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ movie.title }} - Georgia Tech Movie Store</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'MovieLibrary/css/main.css' %}">
+</head>
+<body>
+    <header class="header-box">
+        <div class="header-content">
+            <div class="header-column logo">
+                <img src="{% static 'MovieLibrary/images/GTVertical_RGB.png' %}" alt="GT Logo" class="gt-logo" style="width: 100px; height: auto;">
+            </div>
+            <div class="header-column title">
+                <h1 class="store-title">Georgia Tech Movie Store</h1>
+            </div>
+            <div class="header-column nav-links">
+                <nav>
+                    <a href="/landing">About</a>
+                    <a href="/moviespage">Movies</a>
+                    <a href="/account">Account</a>
+                    <a href="/cart">Cart</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-box">
+        <div class="main-content">
+            <h2 class="store-title text-center">{{ movie.title }}</h2>
+            <hr />
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="{{ movie.image.url }}" alt="{{ movie.title }}" class="movie-image">
+                </div>
+                <div class="col-md-8">
+                    <p class="movie-description">{{ movie.description }}</p>
+                    <p><b>Price:</b> ${{ movie.price }}</p>
+                    <form method="POST" action="{% url 'cart.add' movie_id=movie.movie_id %}">
+                        <div class="row">
+                            {% csrf_token %}
+                            <div class="col-auto">
+                                <div class="input-group col-auto">
+                                    <div class="input-group-text">Quantity</div>
+                                    <input type="number" min="1" max="10" class="form-control quantity-input" name="quantity" value="1">
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <button class="auth-btn" type="submit">Add to cart</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="reviews-box">
+        <div class="reviews-content">
+            {% if user.is_authenticated %}
+            <div class="container mt-4">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="card shadow p-3 mb-4 rounded">
+                            <div class="card-body">
+                                <b class="text-start">Create a review</b><br /><br />
+                                <form method="POST" action="{% url 'movies.create_review' movie_id=movie.movie_id %}">
+                                    {% csrf_token %}
+                                    <p>
+                                        <textarea name="comment" required class="form-control" id="comment" placeholder="Write your review here..."></textarea>
+                                    </p>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn bg-dark text-white">Add Review</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            <h3 class="mt-4">Reviews</h3>
+            <hr />
+            <ul class="list-group">
+                {% for review in reviews %}
+                <li class="list-group-item pb-3 pt-3">
+                    <h5 class="card-title">Review by {{ review.user.username }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ review.date }}</h6>
+                    <p class="card-text">{{ review.comment }}</p>
+                    {% if user.is_authenticated and user == review.user %}
+                    <a class="btn btn-primary" href="{% url 'movies.edit_review' movie_id=movie.movie_id review_id=review.id %}">Edit</a>
+                    <a class="btn btn-danger" href="{% url 'movies.delete_review' movie_id=movie.movie_id review_id=review.id %}">Delete</a>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+
+    <script src="{% static 'MovieLibrary/js/main.js' %}"></script>
+</body>
+</html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ movie.title }} - Georgia Tech Movie Store</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'MovieLibrary/css/main.css' %}">
+</head>
+<body>
+    <header class="header-box">
+        <div class="header-content">
+            <div class="header-column logo">
+                <img src="{% static 'MovieLibrary/images/GTVertical_RGB.png' %}" alt="GT Logo" class="gt-logo" style="width: 100px; height: auto;">
+            </div>
+            <div class="header-column title">
+                <h1 class="store-title">Georgia Tech Movie Store</h1>
+            </div>
+            <div class="header-column nav-links">
+                <nav>
+                    <a href="/landing">About</a>
+                    <a href="/moviespage">Movies</a>
+                    <a href="/account">Account</a>
+                    <a href="/cart">Cart</a>
+                </nav>
+            </div>
+            <div class="header-column search-bar">
+                <input type="text" id="searchInput" placeholder="Search for movies...">
+            </div>
+        </div>
+    </header>
+
+    <main class="main-box">
+        <div class="main-content">
+            <div class="movie-detail">
+                <img src="{{ movie.image.url }}" alt="{{ movie.title }}" class="movie-image">
+                <h2 class="movie-title">{{ movie.title }}</h2>
+                <p class="movie-description">{{ movie.description }}</p>
+                <h3>Reviews</h3>
+                <div class="reviews">
+                    {% for review in reviews %}
+                    <div class="review">
+                        <p><strong>{{ review.user.username }}</strong>: {{ review.text }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            <h2>Reviews</h2>
+        <hr />
+        <ul class="list-group">
+          {% for review in template_data.reviews %}
+          <li class="list-group-item pb-3 pt-3">
+            <h5 class="card-title">
+              Review by {{ review.user.username }}
+            </h5>
+            <h6 class="card-subtitle mb-2 text-muted">
+              {{ review.date }}
+            </h6>
+            <p class="card-text">{{ review.comment }}</p>
+          </li>
+              {% if user.is_authenticated and user == review.user %}
+            <a class="btn btn-primary"
+              href="{% url 'movies.edit_review' movie_id=template_data.movie.movie_id review_id=review.id %}">Edit
+            </a>
+                  <a class="btn btn-danger"
+              href="{% url 'movies.delete_review' movie_id=template_data.movie.movie_id review_id=review.id %}">Delete
+            </a>
+            {% endif %}
+          {% endfor %}
+        </ul>
+            <p><b>Description:</b> {{ template_data.movie.description }}</p>
+        <p>
+          <b>Price:</b> ${{ template_data.movie.price }}
+        </p>
+        <p class="card-text">
+          <form method="POST"
+            action="{% url 'cart.add' movie_id=template_data.movie.movie_id %}">
+            <div class="row">
+              {% csrf_token %}
+              <div class="col-auto">
+                <div class="input-group col-auto">
+                  <div class="input-group-text">Quantity
+                    </div>
+                  <input type="number" min="1" max="10"
+                    class="form-control quantity-input"
+                    name="quantity" value="1">
+                </div>
+              </div>
+              <div class="col-auto">
+                <button class="auth-btn"
+                  type="submit">Add to cart</button>
+              </div>
+            </div>
+          </form>
+        </p>
+         {% if user.is_authenticated %}
+                <div class="container mt-4">
+                  <div class="row justify-content-center">
+                    <div class="col-12">
+                      <div class="card shadow p-3 mb-4 rounded">
+                        <div class="card-body">
+                          <b class="text-start">Create a review
+                            </b><br /><br />
+                          <form method="POST" action=
+                            "{% url 'movies.create_review' movie_id=template_data.movie.movie_id %}">
+                            {% csrf_token %}
+                            <p>
+                              <label for="comment">Comment:</label>
+                              <textarea name="comment" required
+                              class="form-control"
+                              id="comment"></textarea>
+                            </p>
+                            <div class="text-center">
+                              <button type="submit"
+                                class="btn bg-dark text-white">
+                                Add Review
+                              </button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+
+    <script src="{% static 'MovieLibrary/js/main.js' %}"></script>
+</body>
+</html> -->

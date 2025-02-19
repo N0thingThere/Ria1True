@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Page</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'MovieLibrary/css/main.css' %}">
+</head>
+<body>
+    <!-- Header used on the movies page -->
+    <header class="header-box">
+        <div class="header-content">
+            <div class="header-column logo">
+                <img src="{% static 'MovieLibrary/images/GTVertical_RGB.png' %}" alt="GT Logo" class="gt-logo" style="width: 100px; height: auto;">
+            </div>
+            <div class="header-column title">
+                <h1 class="store-title">Georgia Tech Movie Store</h1>
+            </div>
+            <div class="header-column nav-links">
+                <nav>
+                    <a href="/">About</a>
+                    <a href="/moviespage">Movies</a>
+                    <a href="/account">Account</a>
+                    <a href="/cart">Cart</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-box">
+        <div class="main-content">
+            <section class="profile">
+                <h2>{{ user.username }}</h2>
+                <form action="{% url 'accounts.change_password' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="auth-btn">Change Password</button>
+                </form>
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="auth-btn">Log Out</button>
+                </form>
+            </section>
+
+            <a class="auth-btn"
+              href="{% url 'accounts.orders' %}">Orders
+            </a>
+        </div>
+    </main>
+
+    <script src="{% static 'MovieLibrary/js/main.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Georgia Tech Movie Store</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'MovieLibrary/css/main.css' %}">
+</head>
+<!-- Header used on the movies page -->
+<header class="header-box">
+    <div class="header-content">
+        <div class="header-column logo">
+            <img src="{% static 'MovieLibrary/images/GTVertical_RGB.png' %}" alt="GT Logo" class="gt-logo" style="width: 100px; height: auto;">
+        </div>
+        <div class="header-column title">
+            <h1 class="store-title">Georgia Tech Movie Store</h1>
+        </div>
+        <div class="header-column nav-links">
+            <nav>
+                <a href="/landing">About</a>
+                <a href="/account">Account</a>
+                <a href="/cart">Cart</a>
+            </nav>
+        </div>
+        <div class="header-column search-bar">
+            <input type="text" id="searchInput" placeholder="Search for movies...">
+        </div>
+    </div>
+</header>
+    <main class="moviesOuter">
+        <div class="moviesInner">
+            <ul id="moviesList">
+                {% for movie in movies %}
+                <li>
+                    <a href="{% url 'movie_detail' movie.movie_id %}">
+                        <img src="{{ movie.image.url }}" alt="{{ movie.title }}">
+                        <div class="movie-title">{{ movie.title }}</div>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </main>
+
+    <script src="{% static 'MovieLibrary/js/main.js' %}"></script>
+</body>
+</html>

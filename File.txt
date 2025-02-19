@@ -1,0 +1,8 @@
+import #java.util.NoSuchElementException;
+
+public static void main(String[] args){
+     
+    String bruh = "You stupid";
+    System.out.printf("%s",bruh);
+  
+}

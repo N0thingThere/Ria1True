@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Completed - Georgia Tech Movie Store</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'MovieLibrary/css/main.css' %}">
+</head>
+<body>
+    <header class="header-box">
+        <div class="header-content">
+            <div class="header-column logo">
+                <img src="{% static 'MovieLibrary/images/GTVertical_RGB.png' %}" alt="GT Logo" class="gt-logo" style="width: 100px; height: auto;">
+            </div>
+            <div class="header-column title">
+                <h1 class="store-title">Georgia Tech Movie Store</h1>
+            </div>
+            <div class="header-column nav-links">
+                <nav>
+                    <a href="/landing">About</a>
+                    <a href="/moviespage">Movies</a>
+                    <a href="/account">Account</a>
+                    <a href="/cart">Cart</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-box">
+        <div class="main-content">
+            <h2 class="cart-title">Your Shopping Cart</h2>
+            <div class="cart-items">
+                {% for item in template_data.movies_in_cart %}
+                <div class="cart-item">
+                    <div class="cart-item-details">
+                        <h3 class="cart-item-title">{{ item.title }}</h3>
+                        <p class="cart-item-description">{{ item.description }}</p>
+                        <p class="cart-item-price">Price: ${{ item.price }}</p>
+                        <p class="cart-item-quantity">Quantity: {{ item.quantity }}</p>
+                    </div>
+                    <img src="{{ item.image.url }}" alt="{{ item.title }}" class="cart-item-image">
+                </div>
+                {% endfor %}
+            </div>
+            <div class="cart-total">
+                {% if template_data.movies_in_cart|length > 0 %}
+                <a href="{% url 'cart.clear' %}">
+                    <button class="checkout-btn">Remove all movies from Cart</button>
+                </a>
+                {% endif %}
+                <h3>Total: ${{ template_data.cart_total }}</h3>
+                <form action="{% url 'cart.purchase' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="checkout-btn">Checkout</button>
+                </form>
+            </div>
+        </div>

@@ -1,0 +1,42 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Georgia Tech Movie Store</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'MovieLibrary/css/main.css' %}">
+</head>
+<body>
+    <header class="header-box">
+        <div class="header-content">
+            <div class="header-inner">
+                <img src="{% static 'MovieLibrary/images/GTVertical_RGB.png' %}" alt="GT Logo" class="gt-logo" style="width: 100px; height: auto;">
+                <h1 class="store-title">Georgia Tech Movie Store</h1>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="main-box">
+        <div class="main-content">
+                <div class="LoginRegister-section">
+                    <h3 class="auth-title">Register New Account</h3>
+                    <div class="auth-form">
+                        <form method="POST">
+                            {% csrf_token %}
+                            {{template_data.form.as_p}}
+                            <button type="submit" class="auth-btn">Register</button>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+        </div>
+    </main>
+
+
+
+
+    <script src="{% static 'MovieLibrary/js/main.js' %}"></script>
+</body>
+</html>

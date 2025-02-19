@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Completed - Georgia Tech Movie Store</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'MovieLibrary/css/main.css' %}">
+</head>
+<body>
+    <header class="header-box">
+        <div class="header-content">
+            <div class="header-column logo">
+                <img src="{% static 'MovieLibrary/images/GTVertical_RGB.png' %}" alt="GT Logo" class="gt-logo" style="width: 100px; height: auto;">
+            </div>
+            <div class="header-column title">
+                <h1 class="store-title">Georgia Tech Movie Store</h1>
+            </div>
+            <div class="header-column nav-links">
+                <nav>
+                    <a href="/landing">About</a>
+                    <a href="/moviespage">Movies</a>
+                    <a href="/account">Account</a>
+                    <a href="/cart">Cart</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-box">
+        <div class="main-content">
+            <div class="main-column">
+                <h2 class="auth-title">Purchase Completed</h2>
+                <hr />
+                <p>Congratulations, purchase completed. Order number is: <b>#{{ template_data.order_id }}</b></p>
+            </div>
+        </div>

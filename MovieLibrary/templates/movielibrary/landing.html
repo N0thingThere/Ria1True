@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Georgia Tech Movie Store</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'MovieLibrary/css/main.css' %}">
+</head>
+<body>
+    <header class="header-box">
+        <div class="header-content">
+            <div class="header-column logo">
+                    
+                <img src="{% static 'MovieLibrary/images/GTVertical_RGB.png' %}" alt="GT Logo" class="gt-logo" style="width: 100px; height: auto;">
+            </div>
+            <div class="header-column title">
+                <h1 class="store-title">Georgia Tech Movie Store</h1>
+            </div>
+        </div>
+    </div>
+    </header>
+
+    <main class="main-box">
+        <div class="main-content">
+            <div class="main-column welcome-section">
+                <h2 class="welcome-title">Welcome to the Georgia Tech Movie Store!</h2>
+                <p class="welcome-text">
+                    At Movies Store, we offer a vast digital library that spans across genres, 
+                    ensuring there's something for every movie lover. Browse our extensive collection of films, 
+                    including the latest releases, timeless classics, and hidden gems. With just a few clicks, 
+                    you can rent or purchase your favorite titles and instantly stream them in high-definition quality.
+                </p>
+                <p class="welcome-text">
+                    Discover the convenience of our digital platform, where you have the flexibility to watch movies 
+                    on your preferred device, whether it's a smart TV, tablet, or smartphone. With our intuitive search 
+                    and recommendation features, finding your next movie night pick has never been easier.
+                </p>
+            </div>
+            {% if user.is_authenticated %}
+            <div class="main-column auth-section">
+                <h3 class="auth-title">Welcome, {{ user.username }}! You can now browse our list of movies.</h3>
+                <div class="auth-links">
+                    <a href="/account" class="auth-btn">Account</a>
+                    <a href="/moviespage" class="auth-btn">Movies</a>
+                </div>
+            </div>
+            {% else %}
+            <div class="main-column auth-section">
+                <h3 class="auth-title">Account Sign-in</h3>
+                <div class="auth-buttons">
+                    <a href="accounts/registration" class="auth-btn">Register</a>
+                    <a href="accounts/login" class="auth-btn">Login</a>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </main>
+
+
+    
+
+    <script src="{% static 'MovieLibrary/js/main.js' %}"></script>
+</body>
+</html>
+<!--
+    <title>Search Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Search for Products</h1>
+
+    <form method="GET" >
+        <input type="text" name="query" placeholder="Type to search..." required>
+        <button type="submit">Search</button>
+    </form>
+
+</body>
+</html> -->

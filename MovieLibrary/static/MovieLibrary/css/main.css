@@ -1,0 +1,687 @@
+/* main.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap');
+:root {
+    --gt-gold: #b3a369;
+    --gt-navy: #003057;
+    --dark-bg: #1a1a2e;
+    --button-gradient-start: #011525;
+    --button-gradient-end: #010d1a;
+    --button-hover-gradient-start: #b3a369;
+    --button-hover-gradient-end: #d4af37;
+} /*Root Variables for the color scheme (CSS can't exist without pain)*/ 
+
+body { /*Style Settings for the body*/
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Slab', serif;
+    background-image: url('../images/bgLandscape.png');
+    
+.store-title{
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    color: var(--gt-gold);
+    margin: 0;
+    opacity: 1;
+}
+
+.header-box {
+    background-color: rgba(0, 0, 0, 0.45);
+    padding: 1rem;
+    border-radius: 25px;
+    border: 2px solid var(--gt-gold);
+    margin: 1rem;
+    width 
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    max-width: 150rem;
+    margin: 0 auto;
+    position: relative;
+}
+
+.header-column {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.header-column:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 25%;
+    bottom: 25%;
+    width: 2px;
+    background-color: var(--gt-gold);
+}
+
+.header-content-M {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gt-logo {
+    height: 50px;
+    margin: 0;
+    padding: 0;
+}
+
+.welcome-text {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 400;
+    padding-right: 1rem;
+}
+.store-title {
+    color: var(--gt-gold);
+    margin: 0;
+}
+.main-box {
+    background-color: rgba(0, 0, 0, 0.45);
+    padding: 1rem;
+    border-radius: 25px;
+    margin: 2rem auto;
+    border: 2px solid var(--gt-gold);
+    max-width: 800px;
+}
+
+.main-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem; /* Reduce the gap between columns */
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    color:var(--gt-gold)
+}
+.profile {
+    color: var(--gt-gold)
+}
+
+.main-column {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.main-column:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 10%;
+    bottom: 10%;
+    width: 2px;
+    background-color: var(--gt-gold);
+}
+.moviesOuter {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem auto;
+    flex-wrap: wrap;
+}
+.moviesInner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.LoginRegister-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    font-family: 'Roboto Slab', serif;
+    color: var(--gt-gold);
+}
+.nav-links nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-links a {
+    color: var(--gt-gold);
+    font-family: 'Roboto Slab', serif;
+    text-decoration: none; /* Remove underline */
+    font-weight: 700;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+.welcome-section {
+    color: var(--gt-gold);
+}
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-family: 'Roboto Slab', serif;
+    color: var(--gt-gold);
+}
+.auth-form label {
+    font-weight: 700;
+    font-family: 'Roboto Slab', serif;
+    color: var(--gt-gold);
+}
+.auth-form input {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid var(--gt-gold);
+    font-family: 'Roboto Slab', serif;
+    color: var(--gt-gold);
+    
+}
+.auth-title {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    color: var(--gt-gold);
+    margin: 0;
+    opacity: 1;
+    text-align: center;
+}
+.auth-section {
+    text-align: center;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.auth-btn {
+    display: inline-block; /* Ensure the anchor tag is displayed as a block */
+    padding: 0.8rem 2rem;
+    border: 2px solid var(--gt-gold);
+    background: linear-gradient(to right, var(--button-gradient-start), var(--button-gradient-end));
+    color: var(--gt-gold);
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: 'Roboto Slab', serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-decoration: none; /* Remove underline from links */
+}
+
+.auth-btn:hover {
+    background: linear-gradient(to right, var(--button-hover-gradient-start), var(--button-hover-gradient-end));
+    color: var(--dark-bg);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+.auth-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.auth-links a {
+    color: var(--gt-gold);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.auth-links a:hover {
+    text-decoration: underline;
+}
+
+.auth-btn:hover {
+    background-color: var(--gt-gold);
+    color: var(--dark-bg);
+}
+.search-bar {
+    margin-top: 1rem;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--gt-gold);
+    background-color: transparent;
+    color: var(--gt-gold);
+    font-family: 'Roboto Slab', serif;
+}
+#moviesList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#moviesList li {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    flex: 1 1 calc(16.66% - 1rem); /* 6 items per row */
+    max-width: calc(16.66% - 1rem); /* 6 items per row */
+}
+
+#moviesList img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#moviesList li .movie-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--gt-gold);
+    padding: 0.5rem;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#moviesList li:hover .movie-title {
+    opacity: 1;
+}
+/*This is getting cramped :(  Cart Section */
+.cart-title {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    color: var(--gt-gold);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.45);
+    padding: 1rem;
+    border-radius: 10px;
+    border: 2px solid var(--gt-gold);
+}
+
+.cart-item-image {
+    width: 100px;
+    height: auto;
+    border-radius: 10px;
+    margin-right: 1rem;
+}
+
+.cart-item-details {
+    flex: 1;
+}
+
+.cart-item-title {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    color: var(--gt-gold);
+    margin: 0;
+}
+
+.cart-item-quantity,
+.cart-item-price {
+    font-family: 'Roboto Slab', serif;
+    color: var(--gt-gold);
+    margin: 0.5rem 0;
+}
+
+.remove-btn {
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--gt-gold);
+    background-color: var(--gt-navy);
+    color: var(--gt-gold);
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Roboto Slab', serif;
+    transition: all 0.3s ease;
+}
+
+.remove-btn:hover {
+    background-color: var(--gt-gold);
+    color: var(--dark-bg);
+}
+
+.cart-total {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.cart-total h3 {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    color: var(--gt-gold);
+}
+
+.checkout-btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border: 2px solid var(--gt-gold);
+    background-color: var(--gt-navy);
+    color: var(--gt-gold);
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Roboto Slab', serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.checkout-btn:hover {
+    background-color: var(--gt-gold);
+    color: var(--dark-bg);
+}
+.comment-box {
+    width: 50;
+    height: 200px;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 2px solid var(--gt-gold);
+    background-color: black; /* Changed background color to black */
+    color: var(--gt-gold);
+    font-family: 'Roboto Slab', serif;
+    margin: 0 auto; /* Center the comment box */
+    display: block; /* Ensure the comment box is displayed as a block element */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+}
+
+.edit-review-btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border: 2px solid var(--gt-gold);
+    background-color: var(--gt-navy);
+    color: var(--gt-gold);
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Roboto Slab', serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.edit-review-btn:hover {
+    background-color: var(--gt-gold);
+    color: var(--dark-bg);
+}
+.comment-box {
+    width: 100%;
+    height: 200px;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 2px solid var(--gt-gold);
+    background-color: black; /* Changed background color to black */
+    color: var(--gt-gold);
+    font-family: 'Roboto Slab', serif;
+    margin: 0 auto; /* Center the comment box EEE */ 
+    display: block; /* Ensure the comment box is displayed as a block element */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+}
+
+.auth-btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border: 2px solid var(--gt-gold);
+    background-color: var(--gt-navy);
+    color: var(--gt-gold);
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Roboto Slab', serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.auth-btn:hover {
+    background-color: var(--gt-gold);
+    color: var(--dark-bg);
+}
+
+.main-box {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    border-radius: 25px;
+    border: 2px solid var(--gt-gold);
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.reviews-box {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    border-radius: 25px;
+    border: 2px solid var(--gt-gold);
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.reviews-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color : var(--gt-gold);
+    font: 'Roboto Slab', serif;
+}
+
+@media (max-width: 768px) {
+    .main-box, .reviews-box {
+        width: 90%;
+        padding: 1rem;
+    }
+
+    .comment-box {
+        height: 150px;
+    }
+
+    .auth-btn {
+        width: 100%;
+        padding: 0.8rem;
+    }
+}
+.form-control quantity-input:hover{
+    background-color: var(--gt-gold);
+    color: var(--dark-bg);
+}
+.content-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem auto;
+    max-width: 1200px;
+}
+
+.image-container {
+    flex: 1;
+    max-width: 300px;
+}
+
+.movie-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.main-box {
+    flex: 2;
+    padding: 1rem;
+    border-radius: 25px;
+    border: 2px solid var(--gt-gold);
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.reviews-box {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    border-radius: 25px;
+    border: 2px solid var(--gt-gold);
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.reviews-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.auth-btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border: 2px solid var(--gt-gold);
+    background-color: var(--gt-navy);
+    color: var(--gt-gold);
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Roboto Slab', serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    width: 10rem;
+}
+
+.auth-btn:hover {
+    background-color: var(--gt-gold);
+    color: var(--dark-bg);
+}
+
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-container {
+        max-width: 100%;
+    }
+
+    .main-box {
+    }
+
+    .reviews-box {
+        width: 90%;
+        padding: 1rem;
+    }
+
+    .auth-btn {
+        width: 10rem;
+        padding: 0.8rem;
+    }
+}
+.quantity-input {
+    background-color: var(--dark-bg);
+    color: var(--gt-gold);
+    border: 2px solid var(--gt-gold);
+    font-family: 'Roboto Slab', serif;
+    border-radius: 5px;
+}
+.image-container {
+    flex: 1;
+    max-width: 300px;
+}
+
+.movie-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+.cart-item-details {
+    flex: 1;
+}
+
+.cart-title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.cart-total {
+    text-align: center;
+    margin-top: 2rem;
+}
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: var(--gt-gold);
+    background-color: var(--dark-bg);
+    border: 2px solid var(--gt-gold);
+    font-family: 'Roboto Slab', serif;
+}
+
+.table th,
+.table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid var(--gt-gold);
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid var(--gt-gold);
+}
+
+.table-bordered {
+    border: 2px solid var(--gt-gold);
+}
+
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid var(--gt-gold);
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.075);
+}
+
+.table-dark {
+    color: var(--gt-gold);
+    background-color: var(--dark-bg);
+}
+
+.table-dark th,
+.table-dark td,
+.table-dark thead th {
+    border-color: var(--gt-gold);
+}
+
+.table-dark.table-bordered {
+    border: 2px solid var(--gt-gold);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
+/* For When we try to implement mobile design @media (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }  }*/
+  
