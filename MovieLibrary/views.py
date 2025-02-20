@@ -143,7 +143,7 @@ def edit_review(request, movie_id, review_id):
         template_data = {}
         template_data['title'] = 'Edit Review'
         template_data['review'] = review
-        return render(request, 'MovieLibrary/edit_review.html',
+        return render(request, 'movielibrary/edit_review.html',
             {'template_data': template_data})
     elif request.method == 'POST' and request.POST['comment'] != '':
         review = Review.objects.get(id=review_id)
