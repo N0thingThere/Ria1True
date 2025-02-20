@@ -124,7 +124,7 @@ body { /*Style Settings for the body*/
 .moviesOuter {
     display: flex;
     flex-direction: row;
-    gap: 1rem auto;
+    margin-top: 1rem auto;
     flex-wrap: wrap;
 }
 .moviesInner {
@@ -221,10 +221,58 @@ body { /*Style Settings for the body*/
 }
 .auth-links {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Stack buttons vertically */
     gap: 1rem;
+    align-items: center; /* Center the buttons horizontally */
+    justify-content: center; /* Center the buttons vertically */
 }
 
+.auth-btn {
+    display: inline-block; /* Ensure the anchor tag is displayed as a block */
+    padding: 0.8rem 2rem;
+    border: 2px solid var(--gt-gold);
+    background: linear-gradient(to right, var(--button-gradient-start), var(--button-gradient-end));
+    color: var(--gt-gold);
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: 'Roboto Slab', serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-decoration: none; /* Remove underline from links */
+}
+
+.auth-btn:hover {
+    background: linear-gradient(to right, var(--button-hover-gradient-start), var(--button-hover-gradient-end));
+    color: var(--dark-bg);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+}
+
+.auth-btn {
+    display: inline-block; /* Ensure the anchor tag is displayed as a block */
+    padding: 0.8rem 2rem;
+    border: 2px solid var(--gt-gold);
+    background: linear-gradient(to right, var(--button-gradient-start), var(--button-gradient-end));
+    color: var(--gt-gold);
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: 'Roboto Slab', serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-decoration: none; /* Remove underline from links */
+}
+
+.auth-btn:hover {
+    background: linear-gradient(to right, var(--button-hover-gradient-start), var(--button-hover-gradient-end));
+    color: var(--dark-bg);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
 .auth-links a {
     color: var(--gt-gold);
     text-decoration: none;
@@ -241,16 +289,27 @@ body { /*Style Settings for the body*/
 }
 .search-bar {
     margin-top: 1rem;
+    
+}
+.search-bar-container {
+    display: flex;
+    justify-content: center;
+    margin: 1rem auto;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.7); /* Translucent black background */
+    border-radius: 10px;
+    max-width: 35rem; /* Ensure it doesn't touch the edges of the screen */
 }
 
 #searchInput {
-    width: 100%;
+    width: 35rem;
     padding: 0.5rem;
     border: 1px solid var(--gt-gold);
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.7);
     color: var(--gt-gold);
     font-family: 'Roboto Slab', serif;
 }
+
 #moviesList {
     display: flex;
     flex-wrap: wrap;

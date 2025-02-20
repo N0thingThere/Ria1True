@@ -7,27 +7,28 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'MovieLibrary/css/main.css' %}">
 </head>
-<!-- Header used on the movies page -->
-<header class="header-box">
-    <div class="header-content">
-        <div class="header-column logo">
-            <img src="{% static 'MovieLibrary/images/GTVertical_RGB.png' %}" alt="GT Logo" class="gt-logo" style="width: 100px; height: auto;">
+<body>
+    <header class="header-box">
+        <div class="header-content">
+            <a href="/landing" class="header-column logo">
+                <img src="{% static 'MovieLibrary/images/GTVertical_RGB.png' %}" alt="GT Logo" class="gt-logo" style="width: 100px; height: auto;">
+            </a>
+            <div class="header-column title">
+                <h1 class="store-title">Georgia Tech Movie Store</h1>
+            </div>
+            <div class="header-column nav-links">
+                <nav>
+                    <a href="/account">Account</a>
+                    <a href="/cart">Cart</a>
+                </nav>
+            </div>
         </div>
-        <div class="header-column title">
-            <h1 class="store-title">Georgia Tech Movie Store</h1>
-        </div>
-        <div class="header-column nav-links">
-            <nav>
-                <a href="/landing">About</a>
-                <a href="/account">Account</a>
-                <a href="/cart">Cart</a>
-            </nav>
-        </div>
-        <div class="header-column search-bar">
-            <input type="text" id="searchInput" placeholder="Search for movies...">
-        </div>
+    </header>
+    
+    <div class="search-bar-container">
+        <input type="text" id="searchInput" placeholder="Search for movies...">
     </div>
-</header>
+
     <main class="moviesOuter">
         <div class="moviesInner">
             <ul id="moviesList">
