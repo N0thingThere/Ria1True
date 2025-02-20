@@ -223,7 +223,7 @@ body { /*Style Settings for the body*/
     display: flex;
     flex-direction: column; /* Stack buttons vertically */
     gap: 1rem;
-    align-items: center; /* Center the buttons horizontally */
+    align-items: center; /* Center the buttons horizontally  e*/ 
     justify-content: center; /* Center the buttons vertically */
 }
 
