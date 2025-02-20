@@ -11,14 +11,14 @@
     <header class="header-box">
         <div class="header-content">
             <div class="header-column logo">
-                    
-                <img src="{% static 'MovieLibrary/images/GTVertical_RGB.png' %}" alt="GT Logo" class="gt-logo" style="width: 100px; height: auto;">
+                <a href="/landing">
+                    <img src="{% static 'MovieLibrary/images/GTVertical_RGB.png' %}" alt="GT Logo" class="gt-logo" style="width: 100px; height: auto;">
+                </a>
             </div>
             <div class="header-column title">
                 <h1 class="store-title">Georgia Tech Movie Store</h1>
             </div>
         </div>
-    </div>
     </header>
 
     <main class="main-box">
@@ -48,7 +48,7 @@
             {% else %}
             <div class="main-column auth-section">
                 <h3 class="auth-title">Account Sign-in</h3>
-                <div class="auth-buttons">
+                <div class="auth-links">
                     <a href="accounts/registration" class="auth-btn">Register</a>
                     <a href="accounts/login" class="auth-btn">Login</a>
                 </div>
@@ -57,49 +57,6 @@
         </div>
     </main>
 
-
-    
-
     <script src="{% static 'MovieLibrary/js/main.js' %}"></script>
 </body>
 </html>
-<!--
-    <title>Search Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
-        }
-        input[type="text"] {
-            width: 300px;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        button {
-            padding: 10px 15px;
-            font-size: 16px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        button:hover {
-            background-color: #218838;
-        }
-    </style>
-</head>
-<body>
-
-    <h1>Search for Products</h1>
-
-    <form method="GET" >
-        <input type="text" name="query" placeholder="Type to search..." required>
-        <button type="submit">Search</button>
-    </form>
-
-</body>
-</html> -->
